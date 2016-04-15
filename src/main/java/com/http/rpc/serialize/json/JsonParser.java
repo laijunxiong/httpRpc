@@ -21,12 +21,12 @@ public class JsonParser implements Parser
     public Request reqParse(String param) throws RpcException {
         try
         {
-            logger.debug("���ò��� {}", param);
+            logger.debug("调用参数 {}", param);
             return (Request)JSON.parse(param);
         }
         catch (Exception e)
         {
-            logger.error("ת���쳣 param = {}", param, e);
+            logger.error("转换异常 param = {}", param, e);
             throw new RpcException("",e, RpcExceptionCodeEnum.DATA_PARSER_ERROR.getCode(),param);
         }
     }

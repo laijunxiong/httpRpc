@@ -46,7 +46,7 @@ public class HttpContainer extends Container
         }
         catch (Throwable e)
         {
-            logger.error("�����쳣", e);
+            logger.error("容器异常", e);
         }
     }
 

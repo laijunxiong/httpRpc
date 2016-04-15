@@ -59,7 +59,7 @@ public class HttpInvoker implements Invoker
         }
         catch (Exception e)
         {
-            throw new RpcException("http �����쳣",e, RpcExceptionCodeEnum.INVOKE_REQUEST_ERROR.getCode(),request);
+            throw new RpcException("http 调用异常",e, RpcExceptionCodeEnum.INVOKE_REQUEST_ERROR.getCode(),request);
         }
     }
 
@@ -75,15 +75,15 @@ public class HttpInvoker implements Invoker
 
     public static HttpClient getHttpClient() {
         PoolingHttpClientConnectionManager cm = new PoolingHttpClientConnectionManager();
-        //���ӳ�������������200
+        //连接池最大生成连接数200
         cm.setMaxTotal(200);
-        // Ĭ������route���������Ϊ20
+        // 默认设置route最大连接数为20
         cm.setDefaultMaxPerRoute(20);
-        // ָ��ר�ŵ�route���������������Ϊ80
+        // 指定专门的route，设置最大连接数为80
         HttpHost localhost = new HttpHost("localhost", 8080);
         cm.setMaxPerRoute(new HttpRoute(localhost), 50);
-        RequestConfig requestConfig = RequestConfig.custom().setSocketTimeout(60000).setConnectTimeout(500).build();//��������ʹ��䳬ʱʱ��
-        // ����httpClient
+        RequestConfig requestConfig = RequestConfig.custom().setSocketTimeout(60000).setConnectTimeout(500).build();//设置请求和传输超时时间
+        // 创建httpClient
          return HttpClients.custom()
                 .setConnectionManager(cm)
                  .setDefaultRequestConfig(requestConfig)
