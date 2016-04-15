@@ -1,5 +1,9 @@
 package com.http.rpc.proxy;
 
+import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.Method;
+import java.lang.reflect.Proxy;
+
 import com.http.rpc.exception.RpcException;
 import com.http.rpc.invoke.ConsumerConfig;
 import com.http.rpc.invoke.HttpInvoker;
@@ -8,13 +12,6 @@ import com.http.rpc.serialize.Formater;
 import com.http.rpc.serialize.Parser;
 import com.http.rpc.serialize.json.JsonFormater;
 import com.http.rpc.serialize.json.JsonParser;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import java.lang.reflect.InvocationHandler;
-import java.lang.reflect.Method;
-import java.lang.reflect.Proxy;
 
 /**
  * Created by version_z on 2015/8/22.

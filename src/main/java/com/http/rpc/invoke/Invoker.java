@@ -1,10 +1,8 @@
 package com.http.rpc.invoke;
 
-import com.http.rpc.exception.RpcException;
-import com.http.rpc.serialize.Request;
-
-import java.io.IOException;
 import java.io.OutputStream;
+
+import com.http.rpc.exception.RpcException;
 
 /**
  * Created by version_z on 2015/8/22.
@@ -12,18 +10,18 @@ import java.io.OutputStream;
 public interface Invoker
 {
     /**
-     * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-     * @param request ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-     * @param url ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+     * µ÷ÓÃÇëÇó
+     * @param request ÇëÇó±¨ÎÄ
+     * @param url Ïû·ÑÕßÅäÖÃ
      * @return
      * @throws RpcException
      */
     String request(String request,String url) throws RpcException;
 
     /**
-     * ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½
-     * @param response ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½
-     * @param outputStream ï¿½ï¿½ï¿½ï¿½ï¿½
+     * ÇëÇóÓ¦´ð
+     * @param response ÏìÓ¦±¨ÎÄ
+     * @param outputStream Êä³öÁ÷
      * @throws RpcException
      */
     void response(String response,OutputStream outputStream) throws RpcException;

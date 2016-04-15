@@ -5,9 +5,6 @@ import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.http.rpc.serialize.Formater;
 import com.http.rpc.serialize.Request;
 
-import java.util.HashMap;
-import java.util.Map;
-
 /**
  * Created on 2015/8/17.
  */

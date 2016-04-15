@@ -1,9 +1,9 @@
 package com.http.rpc.invoke;
 
-import com.http.rpc.zookeeper.ZookeeperClient;
-
 import java.net.Inet4Address;
 import java.net.UnknownHostException;
+
+import com.http.rpc.zookeeper.ZookeeperClient;
 
 /**
  * Created by version_z on 2015/8/23.

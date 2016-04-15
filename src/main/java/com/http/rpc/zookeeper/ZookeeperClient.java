@@ -1,18 +1,16 @@
 package com.http.rpc.zookeeper;
 
 
-import com.http.rpc.exception.RpcException;
-import com.http.rpc.exception.RpcExceptionCodeEnum;
+import java.util.List;
 
 import org.I0Itec.zkclient.IZkChildListener;
-import org.I0Itec.zkclient.IZkDataListener;
 import org.I0Itec.zkclient.ZkClient;
 import org.I0Itec.zkclient.exception.ZkNoNodeException;
 import org.I0Itec.zkclient.exception.ZkNodeExistsException;
 import org.apache.zookeeper.Watcher;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.http.rpc.exception.RpcException;
+import com.http.rpc.exception.RpcExceptionCodeEnum;
 
 /**
  * Created by version_z on 2015/8/23.
@@ -27,7 +25,7 @@ public class ZookeeperClient
     {
         zkClient = new ZkClient(url);
     }
-    //�����־û�Ŀ¼
+    //创建持久化目录
     public void createPersistent(String path)
     {
         try {
@@ -35,7 +33,7 @@ public class ZookeeperClient
         } catch (ZkNodeExistsException e) {
         }
     }
-    //������ʱĿ¼
+    //创建临时目录
     public void createEphemeral(String path,String data)
     {
         try {
@@ -43,7 +41,7 @@ public class ZookeeperClient
         } catch (ZkNodeExistsException e) {
         }
     }
-    //������ʱĿ¼
+    //创建临时目录
     public void deleteEphemeral(String path)
     {
         try {
@@ -51,7 +49,7 @@ public class ZookeeperClient
         } catch (ZkNodeExistsException e) {
         }
     }
-    //��ȡ��Ŀ¼
+    //获取子目录
     public  List<String> getChildren(String path) throws RpcException {
         try {
             List<String> pathList = zkClient.getChildren(path);
@@ -64,7 +62,7 @@ public class ZookeeperClient
         }
         throw new RpcException(RpcExceptionCodeEnum.NO_PROVIDERS.getCode(),path);
     }
-    //��ȡ�ڵ��е�ֵ
+    //获取节点中的值
     public <T> T getData(String path)
     {
         try {
