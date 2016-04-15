@@ -74,7 +74,7 @@ public class ProviderProxyFactory extends AbstractHandler
         if (config != null){
             config.register(clazz);
         }
-        logger.info("{} �Ѿ�����", clazz.getSimpleName());
+        logger.info("{} 已经发布", clazz.getSimpleName());
     }
 
 
@@ -83,11 +83,11 @@ public class ProviderProxyFactory extends AbstractHandler
         String reqStr = request.getParameter("data");
         try
         {
-            //������������
+            //将请求参数解析
             Request rpcRequest = parser.reqParse(reqStr);
-            //��������
+            //反射请求
             Object result = rpcRequest.invoke(ProviderProxyFactory.getInstance().getBeanByClass(rpcRequest.getClazz()));
-            //��Ӧ����
+            //相应请求
             invoker.response(formater.rsbFormat(result),response.getOutputStream());
         }
         catch (RpcException e)
